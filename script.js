@@ -3,6 +3,8 @@ let item = 0;
 let truePoint = 0;
 let falsePoint = 0;
 
+document.querySelector('.restart').addEventListener('click', ()=>location.reload())
+
 function createQuestion(){
     item++
     const newDiv = document.createElement('div')
@@ -12,15 +14,15 @@ function createQuestion(){
         newDiv.classList.remove("d-none")
         newDiv.classList.add("box__scale")
     }, 700);
-    let num = -175
+    let num = 0
 
     const interval = setInterval(() => {
-        num+=5
-        scroll(mainBox.scrollHeight-400,mainBox.scrollHeight-400)
-        if (num > 0) {
+        num+=10
+        window.scrollTo(0, mainBox.clientHeight - 800)
+        if(num >= 1000){
             clearInterval(interval)
         }
-    }, 20);
+    }, 10);
 
     const positive = Math.round(Math.random())
     const num1 = Math.round(Math.random()*10) + Math.round(Math.random()*10)*10
